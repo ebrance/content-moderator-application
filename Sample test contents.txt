@@ -1,0 +1,93 @@
+Sample test contents
+
+---
+
+### General community
+
+**→ Expected: Approved**
+
+Just finished reading the new sci-fi novel everyone's been talking about. 
+The world-building is incredible and the ending genuinely surprised me. 
+Highly recommend it if you're into space exploration themes!
+
+**→ Expected: Flagged**
+
+I'm so tired of people like you spreading nonsense online. 
+COVID vaccines were never tested properly and the government is hiding 
+the real death numbers. Do your research before trusting mainstream media.
+
+**→ Expected: Removed**
+
+People from that country are subhuman parasites and should be deported. 
+I know where you live and your kind doesn't belong here. 
+Someone should teach you a lesson you won't forget.
+
+
+---
+
+### Kids platform
+
+**→ Expected: Approved**
+
+Hey everyone! I just unlocked the rainbow unicorn pet in the game! 
+It took me three days to collect all the star coins. 
+Does anyone know where to find the hidden treasure chest in level 5?
+
+**→ Expected: Flagged**
+
+This game is so stupid and only babies play it. 
+Anyone who likes this is a total loser and shouldn't be allowed online. 
+Buy my mom's Etsy shop, she makes cool stuff, link in my profile!
+
+**→ Expected: Removed**
+
+Hey, you seem really cool and mature for your age. 
+I'm 25 but I love this game too. Want to be friends? 
+My Snapchat is in my profile, message me there so we can talk privately.
+
+
+---
+
+### Marketplace
+
+**→ Expected: Approved**
+
+Selling my 2021 MacBook Pro 14-inch, M1 Pro chip, 16GB RAM, 512GB SSD. 
+Minor scratches on the bottom, screen is perfect. 
+Comes with original charger and box. Asking $950, open to reasonable offers.
+
+
+**→ Expected: Flagged**
+
+BRAND NEW iPhone 15 Pro — never opened, still sealed in box. 
+Retails for $1,199, selling for $400. 
+Limited stock, DM me fast before they're gone! Accept PayPal only, no returns.
+
+**→ Expected: Removed**
+
+Selling authentic Rolex Submariner — looks identical to the real thing, 
+same logo and everything. Also have Louis Vuitton bags, Gucci belts. 
+Bulk orders welcome. Untraceable payment only, ship worldwide, no questions asked.
+
+
+---
+
+### News comments
+
+**→ Expected: Approved**
+
+Interesting article. I think the new housing policy has merit but the 
+implementation timeline seems overly optimistic given how slowly 
+local councils typically move on planning approvals.
+
+**→ Expected: Flagged**
+
+This journalist has no idea what she's talking about, typical biased reporting 
+from this outlet as usual. The real unemployment numbers the government doesn't 
+want you to see are three times higher than what's being reported here.
+
+**→ Expected: Removed**
+
+This reporter deserves what's coming to her for writing this hit piece. 
+We know her address and she will regret publishing lies about our movement. 
+Everyone share this — make sure she never works in media again.

@@ -1,0 +1,28 @@
+Docker login_build_tag_push
+
+user pool id: us-east-1_N9muKRSSh
+client id: pi1876di442ghv26acdc5chjr
+region: us-east-1
+account id: 487612116503
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 487612116503.dkr.ecr.us-east-1.amazonaws.com
+
+
+*** NOTE: Docker desktop must be running before executing the commands below ****
+
+*** FRONTEND ***
+
+docker build -t content-moderator-frontend .
+
+docker tag content-moderator-frontend:latest 487612116503.dkr.ecr.us-east-1.amazonaws.com/content-moderator-frontend:latest
+
+docker push 487612116503.dkr.ecr.us-east-1.amazonaws.com/content-moderator-frontend:latest
+
+
+*** BACKEND ***
+
+docker build -t content-moderator-backend .
+
+docker tag content-moderator-backend:latest 487612116503.dkr.ecr.us-east-1.amazonaws.com/content-moderator-backend:latest
+
+docker push 487612116503.dkr.ecr.us-east-1.amazonaws.com/content-moderator-backend:latest
