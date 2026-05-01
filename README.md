@@ -9,10 +9,14 @@ The Content Moderator Application is a web-based platform designed to streamline
 - **Amplify Version**: AWS Amplify hosting + API Gateway + ECS Fargate
 - **ECS Version**: Containerized deployment with Docker + ECS Fargate + Application Load Balancer
 
+The ECS version also includes a self-service Cognito sign-up workflow for account creation and onboarding.
+
 ## ✨ Features
 
 - **User Authentication**: Secure login via AWS Cognito
+- **User Registration**: Self-service sign-up flow for ECS version with email/password onboarding
 - **AI-Powered Moderation**: LangGraph agents for intelligent content analysis
+- **Content Category Moderation**: Select moderation rules for General Community, Kids Platform, Marketplace, or News Comments
 - **Verdict Panel**: Display and manage moderation verdicts
 - **RESTful API**: FastAPI backend with JWT authentication
 - **Persistent Storage**: DynamoDB for scalable data persistence
@@ -228,7 +232,8 @@ REACT_APP_COGNITO_CLIENT_ID=your_client_id
 ### Authentication
 - **POST** `/api/v1/moderate` - Submit content for moderation (requires JWT)
   - Headers: `Authorization: Bearer <cognito_jwt_token>`
-  - Body: `{ "content": "text to moderate" }`
+  - Body: `{ "content": "text to moderate", "content_type": "general_community" }`
+  - Supported `content_type` values: `general_community`, `kids_platform`, `marketplace`, `news_comments`
 
 ### Health & Monitoring
 - **GET** `/health` - Health check (no auth required, ALB compatible)

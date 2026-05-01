@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { cognitoService } from '../services/cognitoService';
 import '../styles/LoginPage.css';
 
-function LoginPage({ onLoginSuccess }) {
+function LoginPage({ onLoginSuccess, onGoToSignUp }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -95,8 +95,11 @@ function LoginPage({ onLoginSuccess }) {
           </button>
         </form>
 
-        <p className="login-footer">
-          Access restricted to authorized users only.
+        <p className="login-switch">
+          Don't have an account?{' '}
+          <button className="link-btn" onClick={onGoToSignUp} disabled={loading}>
+            Sign up
+          </button>
         </p>
       </div>
     </div>

@@ -11,6 +11,7 @@
 import {
   CognitoUserPool,
   CognitoUser,
+  CognitoUserAttribute,
   AuthenticationDetails,
 } from 'amazon-cognito-identity-js';
 
@@ -22,6 +23,39 @@ const poolData = {
 const userPool = new CognitoUserPool(poolData);
 
 export const cognitoService = {
+  /**
+   * Sign up a new user with email and password.
+   * Auto-confirms the user immediately (no email verification).
+   * Resolves on success, rejects with a human-readable error string.
+   */
+  signUp(email, password) {
+    return new Promise((resolve, reject) => {
+      const emailAttribute = new CognitoUserAttribute({
+        Name: 'email',
+        Value: email,
+      });
+
+      userPool.signUp(email, password, [emailAttribute], null, (err, result) => {
+        if (err) {
+          if (err.code === 'UsernameExistsException') {
+            reject('An account with this email address already exists.');
+          } else if (err.code === 'InvalidPasswordException') {
+            reject(
+              'Password does not meet requirements. It must be at least 8 characters ' +
+              'and include uppercase, lowercase, and a number.'
+            );
+          } else if (err.code === 'InvalidParameterException') {
+            reject('Please enter a valid email address.');
+          } else {
+            reject(err.message || 'Sign-up failed. Please try again.');
+          }
+          return;
+        }
+        resolve(result);
+      });
+    });
+  },
+
   /**
    * Sign in with email and password.
    * Resolves with { email, token } on success.
