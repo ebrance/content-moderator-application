@@ -179,7 +179,8 @@ content-moderator-application/
 │       │   ├── components/      # React components
 │       │   │   ├── LoginPage.js
 │       │   │   ├── ModeratorApp.js
-│       │   │   └── VerdictPanel.js
+│       │   │   ├── VerdictPanel.js
+│       │   │   └── SignUpPage.js  # ECS version self-service user registration
 │       │   ├── services/        # API and Cognito services
 │       │   │   ├── apiService.js
 │       │   │   └── cognitoService.js

@@ -5,7 +5,7 @@ import '../styles/LoginPage.css';
 // Password must be at least 8 chars, with uppercase, lowercase, a number, and a special character
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
 
-function SignUpPage({ onSignUpSuccess, onGoToLogin }) {
+function SignUpPage({ onSignUpPending, onGoToLogin }) {
   const [email, setEmail]           = useState('');
   const [password, setPassword]     = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
@@ -32,9 +32,8 @@ function SignUpPage({ onSignUpSuccess, onGoToLogin }) {
     setLoading(true);
     try {
       await cognitoService.signUp(email.trim(), password);
-      // Auto sign-in immediately after sign-up (no verification required)
-      const userData = await cognitoService.signIn(email.trim(), password);
-      onSignUpSuccess(userData);
+      // Pass email + password to App so VerifyCodePage can auto sign-in after confirmation
+      onSignUpPending(email.trim(), password);
     } catch (errMsg) {
       setError(errMsg);
     } finally {

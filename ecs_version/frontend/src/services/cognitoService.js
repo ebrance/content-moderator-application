@@ -127,6 +127,58 @@ export const cognitoService = {
   },
 
   /**
+   * Confirm sign-up with the verification code sent to the user's email.
+   */
+  confirmSignUp(email, code) {
+    return new Promise((resolve, reject) => {
+      const cognitoUser = new CognitoUser({
+        Username: email,
+        Pool: userPool,
+      });
+
+      cognitoUser.confirmRegistration(code, true, (err, result) => {
+        if (err) {
+          if (err.code === 'CodeMismatchException') {
+            reject('The verification code you entered is incorrect. Please try again.');
+          } else if (err.code === 'ExpiredCodeException') {
+            reject('The verification code has expired. Please request a new one.');
+          } else if (err.code === 'NotAuthorizedException') {
+            reject('This account has already been confirmed. Please sign in.');
+          } else {
+            reject(err.message || 'Verification failed. Please try again.');
+          }
+          return;
+        }
+        resolve(result);
+      });
+    });
+  },
+
+  /**
+   * Resend the confirmation code to the user's email.
+   */
+  resendConfirmationCode(email) {
+    return new Promise((resolve, reject) => {
+      const cognitoUser = new CognitoUser({
+        Username: email,
+        Pool: userPool,
+      });
+
+      cognitoUser.resendConfirmationCode((err, result) => {
+        if (err) {
+          if (err.code === 'LimitExceededException') {
+            reject('Too many attempts. Please wait a few minutes before requesting a new code.');
+          } else {
+            reject(err.message || 'Failed to resend the code. Please try again.');
+          }
+          return;
+        }
+        resolve(result);
+      });
+    });
+  },
+
+  /**
    * Sign out the current user and clear the local session.
    */
   signOut() {
